@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!--MESSAGE FLASHING EXAMPLE -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+  <div class='information-container'>
+    <div class='categories'>
+      <h2>Categories</h2>
+
+      {% for i in catalogs %}
+        <p><a href = '{{url_for('ListItems', catalog_name = i.name) }}'>{{i.name}}</a></p>
+
+      {% endfor %}
+
+
+    </div>
+    <hr>
+
+    <div class='items'>
+      <div class="items-heading">
+        <div><h2>{{ catalog.name }}</h2></div>
+        <div><a class="fa fa-plus" href = '{{url_for('newCatalogItem', catalog_name = catalog.name) }}'>add</a></div>
+      </div>
+
+      {% for i in items %}
+      <div>
+        <a href = '{{url_for('Details', catalog_name = i.catalog.name, catalogitem_name = i.name) }}'>{{i.name}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

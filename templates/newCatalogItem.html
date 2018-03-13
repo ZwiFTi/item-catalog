@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class='item-container'>
+
+
+  <h2> New Catalog Item </h2>
+
+  <form action="{{url_for('newCatalogItem', catalog_name=catalog_name )}}" method = 'POST'>
+
+    <p>Name:</p>
+
+    <input type='text' size='30' name='name'>
+
+    <p>Description:</p>
+
+    <input type='text' size='30' name='description'>
+
+    <input type='submit' value='Create'>
+
+  </form>
+
+</div>
+{% endblock %}
