@@ -410,8 +410,11 @@ def DeleteCatalogItem(catalogitem_name):
 
 # Helper functions
 def getUserID(email):
-    user = session.query(User).filter_by(email=email).one()
-    return user.id
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
 
 
 def createUser(login_session):
