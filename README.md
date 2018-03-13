@@ -24,11 +24,16 @@ Registered users will have the ability to post, edit and delete their own items.
 
 ## Installation
 
+1. Make sure you have Vagrant, VirtualBox
+2. Make sure you have the Udacity repo
+`git clone https://github.com/udacity/fullstack-nanodegree-vm.git`
+3. cd into the vagrant directory, then:
+
 **In terminal:**
 
     git clone https://github.com/ZwiFTi/item-catalog.git
     vagrant up && vagrant ssh
-    
+
     cd /vagrant/item-catalog/
 
     python populate_db.py
